@@ -47,7 +47,7 @@ export const capabilitiesText = [
     ],
   },
   {
-    title: '',
+    title: 'Detecção de Mudanças',
     paragraphs: [
       'Até recentemente, a indústria ferroviária costumava se concentrar na mediçãode parâmetros de desempenho discretos para determinar se um limite mínimo demanutenção ou segurança havia sido atingido.',
       'No entanto, essa abordagem é limitada a sinalizar seções da via somente quandoatingem um limite mínimo definido, apesar de o mesmo trecho da via estar gradualmentese deteriorando até esse ponto.',

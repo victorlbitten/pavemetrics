@@ -85,5 +85,10 @@ export class AppComponent implements AfterViewInit {
     }
   }
 
+  changeCapability (index:number) {
+    console.log(index);
+    this.currentCapability = this.texts.capabilities[index];
+  }
+
 
 }
