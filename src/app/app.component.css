@@ -1,0 +1,154 @@
+.page-body {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100vh;
+}
+
+
+.sections-container {
+    width: 400vw;
+    display: flex;
+    overflow: hidden;
+    flex-grow: 1;
+    transition: transform 0.4s ease-in-out;
+}
+
+.section {
+    width: 100vw;
+    height: 100%;
+    overflow: auto;
+    padding: 3rem 10rem;
+}
+
+
+
+
+
+.action-btn {
+    --action-btns-offset: 3rem;
+    --transition-time: 0.175s;
+    position: absolute;
+    top: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition:
+        right var(--transition-time) ease-out,
+        left var(--transition-time) ease-out;
+} 
+
+.btn-right {
+    right: var(--action-btns-offset);
+}
+
+
+.btn-left {
+    left: var(--action-btns-offset);
+}
+
+
+.proximity-trigger {
+    --proximity-trigger-dimensions: 300px;
+    position: absolute;
+    width: var(--proximity-trigger-dimensions);
+    height: var(--proximity-trigger-dimensions);
+    top: calc(50% - var(--proximity-trigger-dimensions)/2);
+}
+
+.left0 {
+    left: 0;
+}
+
+.right0 {
+    right: 0;
+}
+
+
+
+.circle {
+    --circle-dimension: 50px;
+    
+    width: var(--circle-dimension);
+    height: var(--circle-dimension);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 3px 3px 5px var(--brand-dark);
+}
+
+
+
+
+
+.navbar-header {
+    background-color: var(--brand-dark);
+    border-radius: 0 0 8px 8px;
+    padding: .5rem 3rem;
+    flex-shrink: 0;
+}
+
+.navbar {
+    display: flex;
+    gap: 3rem;
+}
+
+.navbar-items-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.navbar-item {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    cursor: pointer;
+    color: var(--stone);
+}
+
+.navbar-item-active {
+    color: var(--accent);
+    font-size: 115%;
+}
+
+.icon-large {
+    font-size: 2rem;
+}
+
+
+
+
+
+.accent-card {
+    max-width: 410px;
+    border-radius: 8px;
+    background-color: var(--brand-light);
+    box-shadow: 5px 5px 10px var(--brand);
+}
+
+.accent-card-title {
+    color: var(--ice);
+    padding: var(--spacing-standard) var(--spacing-medium);
+    border-bottom: 1px solid var(--accent-light);
+    text-align: center;
+    font-size: 110%;
+    font-weight: bold;
+}
+
+.accent-card-body {
+    padding: var(--spacing-medium);
+    text-align: justify;
+}
+
+.accent-card-text {
+    text-align: justify;
+    font-size: 1rem;
+    color: var(--ice);
+}
