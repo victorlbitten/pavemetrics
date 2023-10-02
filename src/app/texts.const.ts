@@ -57,3 +57,20 @@ export const capabilitiesText = [
     ],
   },
 ];
+
+
+
+
+
+
+export const aboutText = {
+  title: "Escopo de levantamentos com o LCMS2 para Ferrovias utilizando o Software LRAIL",
+  paragraphs: [
+    "O Sistema de Inspeção Ferroviária a Laser oferece um meio totalmente novo e mais econômico para inspecionar ativos ferroviários.",
+    "A maioria dos sensores de inspeção ferroviária existentes no mercado atualmente estão limitados a uma única função: eles medem um parâmetro específico, como medidor, ou executam uma única tarefa, como geração de imagens ou classificação simples.",
+    "O LRAIL proporciona maior ROI(retorno de investimento) ao fornecer uma inspeção multifuncional que fornece imagens 2D e digitalização 3D em uma única passagem com análise totalmente automatizada usando Inteligência Artificial.",
+    "O LRAIL captura uma impressionante resolução de varredura de 1 mm X e Y e 0, 1 mm Z dos trilhos, dormentes e área de lastro a velocidades de até 120 km / h.",
+    "Os algoritmos de Inteligência Artificial do LRAIL medem e detectam automaticamente alterações relacionadas à bitola, nível cruzado, alinhamento, pontas, clipes, placas de amarração, folga de junta, aparafusamento de barra de junta, desgaste da superfície do trilho e grau de amarração."
+  ]
+};
+

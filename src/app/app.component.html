@@ -16,38 +16,26 @@
       <img src="/assets/ilvc_logo.png" alt="" style="width: 130px" />
       <ul class="navbar-items-container">
         <!-- SOBRE O LRAIL -->
-        <li
-          class="navbar-item"
-          (click)="navigateToSpecificSection(1)"
-          [class.navbar-item-active]="visibleSection === 1"
-        >
+        <li class="navbar-item" (click)="navigateToSpecificSection(1)"
+          [class.navbar-item-active]="visibleSection === 1">
           <span class="material-icons icon-large">&#xe86e;</span>
           <span>Sobre o LRAIL</span>
         </li>
         <!-- TECNOLOGIAS -->
-        <li
-          class="navbar-item"
-          (click)="navigateToSpecificSection(2)"
-          [class.navbar-item-active]="visibleSection === 2"
-        >
+        <li class="navbar-item" (click)="navigateToSpecificSection(2)"
+          [class.navbar-item-active]="visibleSection === 2">
           <span class="material-icons icon-large">&#xe322;</span>
           <span>Tecnologias</span>
         </li>
         <!-- CAPACIDADES -->
-        <li
-          class="navbar-item"
-          (click)="navigateToSpecificSection(3)"
-          [class.navbar-item-active]="visibleSection === 3"
-        >
+        <li class="navbar-item" (click)="navigateToSpecificSection(3)"
+          [class.navbar-item-active]="visibleSection === 3">
           <span class="material-icons icon-large">&#xf092;</span>
           <span>Capacidades</span>
         </li>
         <!-- COBERTURA -->
-        <li
-          class="navbar-item"
-          (click)="navigateToSpecificSection(4)"
-          [class.navbar-item-active]="visibleSection === 4"
-        >
+        <li class="navbar-item" (click)="navigateToSpecificSection(4)"
+          [class.navbar-item-active]="visibleSection === 4">
           <span class="material-icons icon-large">&#xe80b;</span>
           <span>Cobertura</span>
         </li>
@@ -58,11 +46,7 @@
 
 <!-- SECTIONS -->
 <ng-template #sections>
-  <div
-    class="sections-container"
-    id="container"
-    [style.transform]="'translateX(' + translateX + '%)'"
-  >
+  <div class="sections-container" id="container" [style.transform]="'translateX(' + translateX + '%)'">
     <!-- Sobre o LRAIL -->
     <ng-container *ngTemplateOutlet="aboutSection"></ng-container>
 
@@ -71,7 +55,7 @@
     </div>
 
     <div class="section" id="section3">
-      <span>Seção Capacidades</span>
+      <ng-container *ngTemplateOutlet="capabilitiesSection"></ng-container>
     </div>
 
     <div class="section" id="section4">
@@ -82,31 +66,17 @@
 
 <ng-template #actionBtns>
   <!-- Next -->
-  <div
-    class="proximity-trigger right0"
-    (mouseenter)="triggerButtons()"
-    (mouseleave)="hideButtons()"
-  >
-    <button
-      (click)="goToNextSection()"
-      class="action-btn btn-right circle"
-      [style.right]="buttonsAreVisible ? '2rem' : '-5rem'"
-    >
+  <div class="proximity-trigger right0" (mouseenter)="triggerButtons()" (mouseleave)="hideButtons()">
+    <button (click)="goToNextSection()" class="action-btn btn-right circle"
+      [style.right]="buttonsAreVisible ? '2rem' : '-5rem'">
       <span class="material-icons">&#xe5e1;</span>
     </button>
   </div>
 
   <!-- Previous -->
-  <div
-    class="proximity-trigger left0"
-    (mouseenter)="triggerButtons()"
-    (mouseleave)="hideButtons()"
-  >
-    <button
-      (click)="goToPreviousSection()"
-      class="action-btn btn-left circle"
-      [style.left]="buttonsAreVisible ? '2rem' : '-5rem'"
-    >
+  <div class="proximity-trigger left0" (mouseenter)="triggerButtons()" (mouseleave)="hideButtons()">
+    <button (click)="goToPreviousSection()" class="action-btn btn-left circle"
+      [style.left]="buttonsAreVisible ? '2rem' : '-5rem'">
       <span class="material-icons">&#xe5e0;</span>
     </button>
   </div>
@@ -122,61 +92,22 @@
 </ng-template>
 
 <ng-template #aboutSection>
-  <div class="section column gap-xlarge" id="section1">
+  <div class="section" id="section1">
+    <!-- Title -->
+    <h1>{{texts.about.title}}</h1>
     <div class="row justify-center gap-on-screen-large">
-      <h1>Sobre o trem</h1>
-      <!-- text -->
-      <div
-        class="column justify-space-between gap-medium"
-        style="
-          flex-grow: 1;
-          text-align: justify;
-          max-width: 80ch;
-          line-height: 180%;
-        "
-      >
-        <p>
-          O Sistema de Inspeção Ferroviária a Laser oferece um meio totalmente
-          novo e mais econômico para inspecionar ativos ferroviários.
-        </p>
-        <p>
-          A maioria dos sensores de inspeção ferroviária existentes no mercado
-          atualmente estão limitados a uma única função: eles medem um parâmetro
-          específico, como medidor, ou executam uma única tarefa, como geração
-          de imagens ou classificação simples.
-        </p>
-        <p>
-          O LRAIL proporciona maior ROI (retorno de investimento) ao fornecer
-          uma inspeção multifuncional que fornece imagens 2D e digitalização 3D
-          em uma única passagem com análise totalmente automatizada usando
-          Inteligência Artificial.
-        </p>
-        <p>
-          O LRAIL captura uma impressionante resolução de varredura de 1 mm X e
-          Y e 0,1 mm Z dos trilhos, dormentes e área de lastro a velocidades de
-          até 120 km/h.
-        </p>
-        <p>
-          Os algoritmos de Inteligência Artificial do LRAIL medem e detectam
-          automaticamente alterações relacionadas à bitola, nível cruzado,
-          alinhamento, pontas, clipes, placas de amarração, folga de junta,
-          “aparafusamento” de barra de junta, desgaste da superfície do trilho e
-          grau de amarração.
-        </p>
+      <!-- Paragraphs -->
+      <div class="column gap-small" style="max-width: 60ch;">
+        <p *ngFor="let paragraph of texts.about.paragraphs">{{paragraph}}</p>
       </div>
-
       <!-- Images -->
-      <div
-        style="width: 400px; height: auto; border: 1px solid; flex-shrink: 0"
-      ></div>
+      <div style="width: 450px; height: auto; border: 1px solid; flex-shrink: 0;"></div>
     </div>
+
 
     <div class="column" style="text-align: center">
       <h1>Tecnologias</h1>
-      <div
-        class="row"
-        style="width: 80%; align-self: center; flex-wrap: nowrap; gap: 2rem"
-      >
+      <div class="row" style="width: 80%; align-self: center; flex-wrap: nowrap; gap: 2rem">
         <!-- card1 -->
         <div class="accent-card column" style="flex: 1">
           <span style="color: var(--ice)" class="accent-card-title">
@@ -225,4 +156,22 @@
       </div>
     </div>
   </div>
+</ng-template>
+
+
+
+
+
+
+<ng-template #capabilitiesSection>
+   <!-- Title -->
+   <h1>{{currentCapability.title}}</h1>
+   <div class="row justify-center gap-on-screen-large">
+     <!-- Paragraphs -->
+     <div class="column gap-small" style="max-width: 60ch;">
+       <p *ngFor="let paragraph of currentCapability.paragraphs">{{paragraph}}</p>
+     </div>
+     <!-- Images -->
+     <div style="width: 450px; height: auto; border: 1px solid; flex-shrink: 0;"></div>
+   </div>
 </ng-template>

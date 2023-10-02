@@ -1,9 +1,10 @@
 import { AfterViewInit, Component } from '@angular/core';
+import { capabilitiesText, aboutText } from './texts.const';
 
 
 const numberOfSections: number = 4;
 const sectionWidthInVW = 100;
-const translationStep: number = sectionWidthInVW/numberOfSections;
+const translationStep: number = sectionWidthInVW / numberOfSections;
 
 
 @Component({
@@ -11,14 +12,21 @@ const translationStep: number = sectionWidthInVW/numberOfSections;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements AfterViewInit{
+export class AppComponent implements AfterViewInit {
   title = 'pavemetrics';
   visibleSection = 1;
   translateX = 0;
   buttonsAreVisible = true;
-
-  hideButtonsTimeoutRef:any = null;
+  
+  hideButtonsTimeoutRef: any = null;
   hideButtonsAnimationTime: number = 800;
+  
+  texts = {
+    capabilities: capabilitiesText,
+    about: aboutText
+  };
+
+  currentCapability: any = this.texts.capabilities[0];
 
 
   ngAfterViewInit(): void {
@@ -28,45 +36,53 @@ export class AppComponent implements AfterViewInit{
   }
 
 
-  goToNextSection () {
+  goToNextSection() {
     if (this.visibleSection < numberOfSections) {
       this.visibleSection += 1;
       this.handleSectionChange();
     }
   }
 
-  goToPreviousSection () {
+  goToPreviousSection() {
     if (this.visibleSection > 1) {
       this.visibleSection -= 1;
       this.handleSectionChange();
     }
   }
 
-  navigateToSpecificSection (sectionNumber: number) {
+  navigateToSpecificSection(sectionNumber: number) {
     this.visibleSection = sectionNumber;
     this.handleSectionChange();
   }
 
-  handleSectionChange () {
+  handleSectionChange() {
     this.transformContainer();
     // this.triggerButtons();
     // this.hideButtons();
   }
 
-  transformContainer () {
+  transformContainer() {
     this.translateX = -translationStep * (this.visibleSection - 1);
   }
 
 
-  triggerButtons () {
+  triggerButtons() {
     clearTimeout(this.hideButtonsTimeoutRef);
     this.buttonsAreVisible = true;
   }
 
-  hideButtons () {
+  hideButtons() {
     this.hideButtonsTimeoutRef = setTimeout(() => {
       this.buttonsAreVisible = false;
     }, this.hideButtonsAnimationTime);
+  }
+
+
+  selectCapabilityByIndex(index: number) {
+    return {
+      index,
+      info: this.texts.capabilities[index]
+    }
   }
 
 
