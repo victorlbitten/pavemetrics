@@ -114,12 +114,13 @@
     align-items: center;
     gap: .6rem;
     cursor: pointer;
-    color: var(--stone);
+    color: var(--ice);
 }
 
 .navbar-item-active {
     color: var(--accent);
     font-size: 115%;
+    font-weight: 600;
 }
 
 .icon-large {
@@ -222,4 +223,8 @@
 .capability-item:hover {
     color: var(--accent);
     font-weight: 600;
+}
+
+.paragraphs-container {
+    text-align: justify;
 }

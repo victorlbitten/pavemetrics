@@ -55,7 +55,7 @@ export const capabilitiesText = [
       'A inteligência artificial do LRAIL alinha automaticamente as inspeções repetidas e, em seguida,analisa dados em 2D e 3D para detectar mudanças entre eles.',
       'Mudanças positivas, devido à realização de manutenção, assim como mudanças negativas podemser detectadas. Exemplos de mudanças que podem ser detectadas incluem:',
     ],
-  },
+  }
 ];
 
 
