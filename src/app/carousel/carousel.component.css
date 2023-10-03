@@ -1,0 +1,18 @@
+.carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.inner-container {
+    display: flex;
+    align-items: flex-start;
+    transition: transform .5s ease;
+}
+
+
+.carousel img {
+    width: 100%;
+    height: auto;
+}
+
+

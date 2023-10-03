@@ -1,1 +1,11 @@
-<p>carousel works!</p>
+<div class="carousel" #carousel>
+    <div class="inner-container" [style.transform]="'translateX(' + carouselTranslationInPx + 'px)'" #container>
+        <img *ngFor="let image of images" [src]="image">
+    </div>
+</div>
+
+<div style="text-align: center;">
+    <button (click)="previousImage()">previous</button>
+    <button (click)="nextImage()">next</button>
+
+</div>
