@@ -66,13 +66,13 @@ export class CarouselComponent implements AfterViewInit, OnInit {
   }
 
   translateModalInnerContainer() {
-    this.modalInnerContainerTranslation = -(80 * this.currentIndex);
+    this.modalInnerContainerTranslation = -(800 * this.currentIndex);
   }
 
   openModal() {
     console.log(this.images);
     clearInterval(this.transitionIntervalRef);
-    this.modalInnerContainerTranslation = -(80 * this.currentIndex);
+    this.modalInnerContainerTranslation = -(800 * this.currentIndex);
     this.showModal = true;
   }
 

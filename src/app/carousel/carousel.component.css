@@ -16,8 +16,10 @@
 
 .modal {
   position: relative;
-  width: 80vw;
-  height: 48vw;
+  /* width: 80vw;
+  height: 48vw; */
+  width: 800px;
+  height: 480px;
   background-color: white;
   /* top: 16vh;
   left: 10vw; */
@@ -29,7 +31,8 @@
 .modal-inner-container {
     display: flex;
     width: 400vw;
-    height: 48vw;
+    /* height: 48vw; */
+    height: 480px;
     transition: transform 0.5s ease;
 }
 
