@@ -1,11 +1,40 @@
 <div class="carousel" #carousel>
-    <div class="inner-container" [style.transform]="'translateX(' + carouselTranslationInPx + 'px)'" #container>
-        <img *ngFor="let image of images" [src]="image">
-    </div>
-</div>
+  <div
+    class="inner-container"
+    [style.transform]="'translateX(' + carouselTranslationInPx + 'px)'"
+    #container
+  >
+    <img *ngFor="let image of images" [src]="image" (click)="openModal()" />
+  </div>
 
-<div style="text-align: center;">
-    <button (click)="previousImage()">previous</button>
-    <button (click)="nextImage()">next</button>
+  <!-- modal -->
+  <div class="test" *ngIf="showModal">
+    <div class="backdrop"></div>
+    <div class="modal">
+      <div
+        class="modal-inner-container"
+        [style.transform]="
+          'translateX(' + modalInnerContainerTranslation + 'vw)'
+        "
+      >
+        <img
+          *ngFor="let image of images"
+          [src]="image"
+          (click)="openModal()"
+          style="width: 80vw"
+        />
+      </div>
+      <!-- action btns -->
+      <button class="modal-btn modal-previous-btn" (click)="previousImage()">
+        <i class="material-icons">&#xe5e0;</i>
+      </button>
+      <button class="modal-btn modal-next-btn" (click)="nextImage()">
+        <i class="material-icons">&#xe5e1;</i>
+      </button>
+      <button class="modal-btn modal-close-btn" (click)="closeModal()">
+        <i class="material-icons">&#xe5cd;</i>
+      </button>
+    </div>
+  </div>
 
 </div>

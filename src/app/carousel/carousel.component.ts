@@ -14,15 +14,20 @@ export class CarouselComponent implements AfterViewInit, OnInit {
 
   currentIndex = 0;
   carouselTranslationInPx = 0;
+  modalInnerContainerTranslation = 0;
   imageWidthInPx: number;
+  showModal = false;
+  transitionIntervalRef: any;
 
   constructor (
     private renderer: Renderer2
   ) {}
 
 
+
   ngOnInit(): void {
     this.imageWidthInPx = this.imageWidth || this._fallbackImageWidthInPx;
+    this.setAutomaticTransitionOnCarousel();
   }
 
   ngAfterViewInit(): void {
@@ -37,6 +42,9 @@ export class CarouselComponent implements AfterViewInit, OnInit {
       ? this.currentIndex + 1
       : 0;
     this.translateContainer();
+    if (this.showModal) {
+      this.translateModalInnerContainer();
+    }
   }
 
   previousImage() {
@@ -44,6 +52,9 @@ export class CarouselComponent implements AfterViewInit, OnInit {
       ? this.currentIndex - 1
       : this.images.length - 1;
     this.translateContainer();
+    if (this.showModal) {
+      this.translateModalInnerContainer();
+    }
   }
 
   goToImageByIndex (index: number) {
@@ -52,5 +63,27 @@ export class CarouselComponent implements AfterViewInit, OnInit {
 
   translateContainer() {
     this.carouselTranslationInPx = - (this.currentIndex * this.imageWidthInPx);
+  }
+
+  translateModalInnerContainer() {
+    this.modalInnerContainerTranslation = -(80 * this.currentIndex);
+  }
+
+  openModal() {
+    console.log(this.images);
+    clearInterval(this.transitionIntervalRef);
+    this.modalInnerContainerTranslation = -(80 * this.currentIndex);
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
+    this.setAutomaticTransitionOnCarousel();
+  }
+
+  setAutomaticTransitionOnCarousel () {
+    this.transitionIntervalRef = setInterval(() => {
+      this.nextImage();
+    }, 3000);
   }
 }

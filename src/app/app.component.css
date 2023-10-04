@@ -57,6 +57,7 @@
     width: var(--proximity-trigger-dimensions);
     height: var(--proximity-trigger-dimensions);
     top: calc(50% - var(--proximity-trigger-dimensions)/2);
+    z-index: -1;
 }
 
 .left0 {
