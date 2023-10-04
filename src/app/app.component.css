@@ -57,6 +57,7 @@
     width: var(--proximity-trigger-dimensions);
     height: var(--proximity-trigger-dimensions);
     top: calc(50% - var(--proximity-trigger-dimensions)/2);
+    z-index: -1;
 }
 
 .left0 {
@@ -91,6 +92,7 @@
     border-radius: 0 0 8px 8px;
     padding: .5rem 3rem;
     flex-shrink: 0;
+    box-shadow: 4px 4px 15px #333;
 }
 
 .navbar {
@@ -118,7 +120,7 @@
 }
 
 .navbar-item-active {
-    color: var(--accent);
+    color: var(--accent-light);
     font-size: 115%;
     font-weight: 600;
 }
@@ -134,8 +136,8 @@
 .accent-card {
     max-width: 410px;
     border-radius: 8px;
-    background-color: var(--brand-light);
-    box-shadow: 5px 5px 10px var(--brand);
+    background-color: var(--brand-dark);
+    box-shadow: 4px 4px 13px #333;
 }
 
 .accent-card-title {
@@ -221,7 +223,7 @@
 }
 
 .capability-item:hover {
-    color: var(--accent);
+    color: var(--accent-light);
     font-weight: 600;
 }
 

@@ -1,0 +1,89 @@
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.inner-container {
+  display: flex;
+  align-items: flex-start;
+  transition: transform 0.5s ease;
+}
+
+.carousel img {
+  width: 100%;
+  height: auto;
+}
+
+.modal {
+  position: relative;
+  /* width: 80vw;
+  height: 48vw; */
+  width: 800px;
+  height: 480px;
+  background-color: white;
+  /* top: 16vh;
+  left: 10vw; */
+  /* transform: translate(-50%, -50%); */
+  z-index: 1001;
+  overflow: hidden;
+}
+
+.modal-inner-container {
+    display: flex;
+    width: 400vw;
+    /* height: 48vw; */
+    height: 480px;
+    transition: transform 0.5s ease;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+
+
+.test {
+    position: fixed;
+    width: 100vw;
+    height: calc(100vh - 81px);
+    background-color: transparent;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-btn {
+    position: absolute;
+    z-index: 1002;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;  /* Adjust the width as needed */
+    height: 40px;
+    border-radius: 50%;
+}
+
+.modal-previous-btn {
+    left: 1rem;
+    top: 50%;
+}
+
+.modal-next-btn {
+    right: 1rem;
+    top: 50%;
+}
+
+.modal-close-btn {
+    top: 0;
+    right: 0;
+}

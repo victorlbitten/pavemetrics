@@ -110,12 +110,15 @@
         <p *ngFor="let paragraph of texts.about.paragraphs">{{paragraph}}</p>
       </div>
       <!-- Images -->
-      <div style="width: 450px; height: auto; border: 1px solid; flex-shrink: 0;"></div>
+      <div style="flex-shrink: 0;">
+        <app-carousel [imageWidth]="600" [images]="texts.about.images"></app-carousel>
+      </div>
+      <!-- <div style="width: 450px; height: auto; border: 1px solid; flex-shrink: 0;"></div> -->
     </div>
 
 
     <div class="column gap-medium" style="text-align: center; margin-top: 3rem;">
-      <h1>Tecnologias</h1>
+      <h1>Inovações</h1>
       <div class="row" style="width: 80%; align-self: center; flex-wrap: nowrap; gap: 2rem">
         <!-- card1 -->
         <div class="accent-card column" style="flex: 1">
@@ -173,8 +176,6 @@
 
 
 <ng-template #capabilitiesSection>
-
-
   <!-- Title -->
   <h1>{{currentCapability.title}}</h1>
   <div class="row justify-center gap-on-screen-large">
@@ -183,6 +184,8 @@
       <p *ngFor="let paragraph of currentCapability.paragraphs">{{paragraph}}</p>
     </div>
     <!-- Images -->
-    <div style="width: 450px; height: auto; border: 1px solid; flex-shrink: 0;"></div>
+    <div style="flex-shrink: 0;">
+      <app-carousel [imageWidth]="600" [images]="currentCapability.images"></app-carousel>
+    </div>
   </div>
 </ng-template>
