@@ -1,0 +1,40 @@
+.outer-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.inner-container {
+    display: flex;
+    transition: transform .5s ease;
+}
+
+.inner-container img {
+    width: 800px;
+    height: 480px;
+}
+
+
+
+.modal-btn {
+    position: absolute;
+    z-index: 1002;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;  /* Adjust the width as needed */
+    height: 40px;
+    border-radius: 50%;
+}
+
+.modal-previous-btn {
+    left: 1rem;
+    top: 50%;
+}
+
+.modal-next-btn {
+    right: 1rem;
+    top: 50%;
+}

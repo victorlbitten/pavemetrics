@@ -1,40 +1,7 @@
-<div class="carousel" #carousel>
-  <div
-    class="inner-container"
-    [style.transform]="'translateX(' + carouselTranslationInPx + 'px)'"
-    #container
-  >
-    <img *ngFor="let image of images" [src]="image" (click)="openModal()" />
-  </div>
-
-  <!-- modal -->
-  <div class="test" *ngIf="showModal">
-    <div class="backdrop"></div>
-    <div class="modal">
-      <div
-        class="modal-inner-container"
-        [style.transform]="
-          'translateX(' + modalInnerContainerTranslation + 'px)'
-        "
-      >
-        <img
-          *ngFor="let image of images"
-          [src]="image"
-          (click)="openModal()"
-          style="width: 800px; height: 480px;"
-        />
-      </div>
-      <!-- action btns -->
-      <button class="modal-btn modal-previous-btn" (click)="previousImage()">
-        <i class="material-icons">&#xe5e0;</i>
-      </button>
-      <button class="modal-btn modal-next-btn" (click)="nextImage()">
-        <i class="material-icons">&#xe5e1;</i>
-      </button>
-      <button class="modal-btn modal-close-btn" (click)="closeModal()">
-        <i class="material-icons">&#xe5cd;</i>
-      </button>
+<div style="padding: 1rem; border-radius: 8px; box-shadow: 4px 4px 13px #333; background-color: var(--brand-dark);">
+  <div class="carousel" #carousel>
+    <div class="inner-container" [style.transform]="'translateX(' + carouselTranslationInPx + 'px)'" #container>
+      <img *ngFor="let image of images" [src]="image" (click)="openDialog()" />
     </div>
   </div>
-
 </div>

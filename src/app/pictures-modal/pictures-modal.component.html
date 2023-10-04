@@ -1,0 +1,12 @@
+<div class="outer-container">
+    <div class="inner-container" [style.transform]="'translateX(' + containerXTranslationInPx + 'px)'">
+        <img *ngFor="let image of data.images" [src]="image" alt="">
+    </div>
+
+    <button class="modal-btn modal-previous-btn" (click)="previousImage()">
+        <i class="material-icons">&#xe5e0;</i>
+    </button>
+    <button class="modal-btn modal-next-btn" (click)="nextImage()">
+        <i class="material-icons">&#xe5e1;</i>
+    </button>
+</div>
