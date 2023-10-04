@@ -191,3 +191,5 @@ h3 {
 .gap-on-screen-large {
     gap: calc(3rem + 5vw);
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

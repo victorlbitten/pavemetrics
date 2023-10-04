@@ -1,4 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild, Renderer2 } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { PicturesModalComponent } from '../pictures-modal/pictures-modal.component';
 
 @Component({
   selector: 'app-carousel',
@@ -19,9 +21,10 @@ export class CarouselComponent implements AfterViewInit, OnInit {
   showModal = false;
   transitionIntervalRef: any;
 
-  constructor (
-    private renderer: Renderer2
-  ) {}
+  constructor(
+    private renderer: Renderer2,
+    public dialog: MatDialog
+  ) { }
 
 
 
@@ -32,7 +35,7 @@ export class CarouselComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit(): void {
     this.renderer.setStyle(this.carousel.nativeElement, 'width', `${this.imageWidthInPx}px`);
-    this.renderer.setStyle(this.carousel.nativeElement, 'height', `${this.imageWidthInPx/1.666}px`);
+    this.renderer.setStyle(this.carousel.nativeElement, 'height', `${this.imageWidthInPx / 1.666}px`);
 
   }
 
@@ -57,7 +60,7 @@ export class CarouselComponent implements AfterViewInit, OnInit {
     }
   }
 
-  goToImageByIndex (index: number) {
+  goToImageByIndex(index: number) {
 
   }
 
@@ -81,9 +84,45 @@ export class CarouselComponent implements AfterViewInit, OnInit {
     this.setAutomaticTransitionOnCarousel();
   }
 
-  setAutomaticTransitionOnCarousel () {
+  setAutomaticTransitionOnCarousel() {
     this.transitionIntervalRef = setInterval(() => {
       this.nextImage();
     }, 3000);
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  openDialog() {
+    clearInterval(this.transitionIntervalRef);
+    const modalData = {
+      currentIndex: this.currentIndex,
+      images: this.images
+    };
+    const dialogRef = this.dialog.open(PicturesModalComponent, {
+      width: '800px',
+      height: '480px',
+      data: modalData
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.setAutomaticTransitionOnCarousel();
+      console.log(result);
+    })
+  }
+
+
+
+
+
+
 }
